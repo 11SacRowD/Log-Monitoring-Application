@@ -1,0 +1,21 @@
+ERROR: scheduled task 051 with ID 39547 took longer than 10 minutes.
+ERROR: scheduled task 515 with ID 45135 took longer than 10 minutes.
+WARNING: scheduled task 074 with ID 71766 took longer than 5 minutes.
+ERROR: background job wmy with ID 81258 took longer than 10 minutes.
+WARNING: scheduled task 268 with ID 87228 took longer than 5 minutes.
+WARNING: scheduled task 811 with ID 50295 took longer than 5 minutes.
+WARNING: scheduled task 294 with ID 27222 took longer than 5 minutes.
+WARNING: scheduled task 794 with ID 87570 took longer than 5 minutes.
+WARNING: background job sqm with ID 99672 took longer than 5 minutes.
+WARNING: background job xfg with ID 86716 took longer than 5 minutes.
+ERROR: scheduled task 004 with ID 22003 took longer than 10 minutes.
+ERROR: scheduled task 064 with ID 85742 took longer than 10 minutes.
+WARNING: scheduled task 746 with ID 98746 took longer than 5 minutes.
+ERROR: scheduled task 460 with ID 39860 took longer than 10 minutes.
+ERROR: background job tqc with ID 52532 took longer than 10 minutes.
+ERROR: scheduled task 936 with ID 62401 took longer than 10 minutes.
+ERROR: scheduled task 374 with ID 23703 took longer than 10 minutes.
+ERROR: scheduled task 182 with ID 70808 took longer than 10 minutes.
+WARNING: scheduled task 672 with ID 24482 took longer than 5 minutes.
+ERROR: scheduled task 333 with ID 72029 took longer than 10 minutes.
+WARNING: scheduled task 016 with ID 72897 took longer than 5 minutes. Cannot determine if job took longer than 10 minutes, job END not in log!
