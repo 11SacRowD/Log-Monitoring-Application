@@ -6,9 +6,11 @@ Usage: python3 log_processor.py <path_to_input_log_file> <path_to_output_report_
 Solution: 
 
 Due to the nature of a log file, we can draw some idea which help us optimize the time and space complexity of our problem:
-    - The jobs being logged are most likely processes running on an operating systems (PID used in application description)
+
+    - The jobs being logged are most likely processes running on an operating systems (PID used in application description
     - 2 processes running at the same time can not have the same PID
     - The first occurence of a PID in a log file will signify the start of a job, the second one, the end of a job
+    
 
 Therefore, iterating over every job and using a dictionary with PIDs as keys to track starts and ends of jobs is both time and space efficient.
 
@@ -28,7 +30,14 @@ Usage: python3 run_tests.py
 
 
 Notes:
+
     - The solution was written unde the assumption that the logging did not miss any starts and ends of a job
     - The solution was written with as many edge cases / possible unprovided information in mind, without overcomplicating the task
     - Test generation tried to emulate the log given as an example to the best of my abilities,
     without going into extensive detail (May suffer from jobs generated with the same START timestamp / END timestamp)
+
+Possible improvements:
+
+    - A more indepth look at log edge cases ( Ex: Better processing of 100GBs worth of logs, a parallel solution, but not in Pyhton :) )
+    - Simple CI/CD pipeline to use the automated testing feature
+    - A bit more testing of the test_generator
