@@ -2,6 +2,7 @@ import random
 import string
 import itertools
 import sys
+import os
 # Job types
 SCHEDULED_TASK = "scheduled task"
 BACKGROUND_JOB = "background job"
@@ -111,18 +112,35 @@ def generate_jobs(num_jobs, time_frame):
 
 def main():
     nr_args = len(sys.argv)
-    if nr_args != 3:
-        print("Usage: python test_generator.py <number_of_jobs> <time_frame>")
+    if nr_args != 4:
+        print("Usage: python test_generator.py <number_of_jobs> <time_frame> <name_of_logfile>")
         sys.exit(1)
         
     num_jobs = int(sys.argv[1])
     time_frame = int(sys.argv[2])
+    path_to_logfile = sys.argv[3]
     
     logfile_entries, num_job_errors, num_job_warnings = generate_jobs(num_jobs, time_frame)
-    print(f"Generated {num_jobs} jobs with {num_job_errors} errors and {num_job_warnings} warnings.")
+    print(f"Generated {num_jobs} jobs with {num_job_errors} expected errors and {num_job_warnings} expected warnings.")
     
-    with open("logfile.log", "w") as logfile:
-        logfile.writelines(logfile_entries)
+    # Name consistency and directory pre-requisite required for automatic testing
+    if not os.path.exists("logstash"):
+        os.makedirs("logstash")
+    if not path_to_logfile.startswith("logstash/"):
+        path_to_logfile = "logstash/" + path_to_logfile
+    if not path_to_logfile.endswith(".log"):
+        path_to_logfile += ".log"
+        
+    path_to_expected_report_data_file = path_to_logfile + ".expected_data"
+    
+    logfile = open(path_to_logfile, "w")
+    expected_report_data_file = open(path_to_expected_report_data_file, "w")
+    
+    logfile.writelines(logfile_entries)
+    expected_report_data_file.write(f"{num_job_errors} {num_job_warnings}")
+    
+    logfile.close()
+    expected_report_data_file.close()
 
 if __name__ == "__main__":
     main()
